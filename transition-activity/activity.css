@@ -2,9 +2,56 @@ button {
     background-color: ghostwhite;
     transition-property: background-color;
     transition-duration: 2s;
+    margin: 1em;
 }
 button:hover {
     /* background-color: cornflowerblue; */
     color: white;
 }
-
+.caption {
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+.caption-media {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.caption-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 1s ease-in;
+}
+.caption:hover .caption-overlay {
+    transform: translateY(0);
+}
+.caption-overlay-title {
+    margin: 0;
+    padding: 0 0 12px;
+    transform: translateY(calc(-100% - 10px));
+    transition: transform 1s ease-out;
+}
+.caption:hover .caption-overlay-title {
+    transform: translateY(0);
+}
+.caption::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: transparent;
+    transition: background 1s ease-out;
+}
+.caption:hover::before {
+    background: rgba(0, 0, 0, .5);
+}
